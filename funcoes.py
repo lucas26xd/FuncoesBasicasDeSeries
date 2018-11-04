@@ -47,14 +47,24 @@ def exp(r, x, n):  # Retorna uma tupla contendo as coordenadas do novo ponto
 
 
 def arctg(x, y, n):  # Série que aproxima o valor do arctg
+    aux = False
+    if x < y:  # Correção de erro para y > x
+        aux = True
+        x, y = y, x
+
     arctg = 0
     for i in range(0, n):
         arctg = arctg + ((((-1) ** i) / ((2 * i) + 1)) * (y / x) ** ((2 * i) + 1))
-    return arctg * 180 / 3.141592654  # Conversão de graus para radianos
+
+    if aux:
+        arctg = (3.141592654/2) - arctg  # Correçãode erro para y > x
+
+    return arctg * 180 / 3.141592654  # Conversão de radianos para graus
 
 
-def arctan(x, a):  # Aproximação da série do arctan
-    return (x / a) - ((1 / 3) * ((x / a) ** 3)) + ((1 / 5) * ((x / a) ** 5))
+def arctan(x, y):  # Aproximação da série do arctan
+    #return (y / x) - ((1 / 3) * ((y / x) ** 3)) + ((1 / 5) * ((y / x) ** 5))
+    return arctg(x, y, 3)
 
 
 def pi(n):  # Série que se aproxima o número PI = 3.141592654
@@ -66,19 +76,3 @@ def pi(n):  # Série que se aproxima o número PI = 3.141592654
 
 def r(x, y):  # Retorna o módulo do número complexo
     return ((x ** 2) + (y ** 2)) ** 0.5
-
-
-def main():
-    x = float(input("Coord. X = "))
-    y = float(input("Coord. Y = "))
-    a = float(input("Ang. Psi = "))
-
-    N = 20  # 20 iterações para todas as séries
-
-    x1, y1 = exp(r(x, y), a + arctg(x, y, N), N)
-
-    print(f"(x', y') = ({x1:.3}, {y1:.3})")
-
-
-if __name__ == "__main__":
-    main()
