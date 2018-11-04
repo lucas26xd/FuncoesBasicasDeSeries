@@ -1,4 +1,4 @@
-from funcoes import seno, cosseno, exp, arctg, r, arctan
+from funcoes import exp, r, arctg
 from plot import plot
 
 

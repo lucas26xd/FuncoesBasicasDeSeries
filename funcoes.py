@@ -35,11 +35,11 @@ def cosseno(theta, n):  # Série que representa o valor do cos(theta)
     return cos
 
 
-def exp(theta, n):  # Série que aproxima do valor da exponencial de theta
-    exp = 0
+def e(theta, n):  # Série que aproxima do valor da exponencial de theta
+    e = 0
     for i in range(0, n):
-        exp = exp + ((theta ** i) / fat(i))
-    return exp
+        e = e + ((theta ** i) / fat(i))
+    return e
 
 
 def exp(r, x, n):  # Retorna uma tupla contendo as coordenadas do novo ponto
