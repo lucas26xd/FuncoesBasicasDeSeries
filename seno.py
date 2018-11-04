@@ -1,5 +1,6 @@
 from fatorial import fat
 
+
 def seno(x, n):
     sen = 0
     for i in range(0, n):

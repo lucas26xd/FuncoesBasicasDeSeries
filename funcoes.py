@@ -11,15 +11,16 @@ Este código tem a função de mostrar como implementei algumas funções básic
 e mostrar a rotação de um ponto usando a matriz de rotação complexa
 '''
 
+
 def fat(n):  # Retorna o fatorial de n
     if n == 0:
         return 1
     else:
-        return fat(n-1) * n
+        return fat(n - 1) * n
 
 
 def seno(theta, n):  # Série que representa o valor do sen(theta)
-    theta = theta * 3.141592654/180 #Conversão de graus para radianos
+    theta = theta * 3.141592654 / 180  # Conversão de graus para radianos
     sen = 0
     for i in range(0, n):
         sen = sen + (((-1) ** i) / fat((2 * i) + 1) * (theta ** ((2 * i) + 1)))
@@ -27,7 +28,7 @@ def seno(theta, n):  # Série que representa o valor do sen(theta)
 
 
 def cosseno(theta, n):  # Série que representa o valor do cos(theta)
-    theta = theta * 3.141592654/180 #Conversão de graus para radianos
+    theta = theta * 3.141592654 / 180  # Conversão de graus para radianos
     cos = 0
     for i in range(0, n):
         cos = cos + ((((-1) ** i) / fat(2 * i)) * (theta ** (2 * i)))
@@ -48,19 +49,19 @@ def exp(r, x, n):  # Retorna uma tupla contendo as coordenadas do novo ponto
 def arctg(x, y, n):  # Série que aproxima o valor do arctg
     arctg = 0
     for i in range(0, n):
-        arctg = arctg + ((((-1) ** i) / ((2*i) + 1)) * (y/x) ** ((2 * i) + 1))
-    return arctg * 180 / 3.141592654 #Conversão de graus para radianos
+        arctg = arctg + ((((-1) ** i) / ((2 * i) + 1)) * (y / x) ** ((2 * i) + 1))
+    return arctg * 180 / 3.141592654  # Conversão de graus para radianos
 
 
 def arctan(x, a):  # Aproximação da série do arctan
-    return (x/a) - ((1/3) * ((x/a) ** 3)) + ((1/5) * ((x/a) ** 5))
+    return (x / a) - ((1 / 3) * ((x / a) ** 3)) + ((1 / 5) * ((x / a) ** 5))
 
 
 def pi(n):  # Série que se aproxima o número PI = 3.141592654
     pi = 0
     for i in range(0, n):
         pi = pi + (((-1) ** i) / ((2 * i) + 1))
-    return pi*4
+    return pi * 4
 
 
 def r(x, y):  # Retorna o módulo do número complexo
