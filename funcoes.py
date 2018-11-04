@@ -67,7 +67,7 @@ def arctan(x, y):  # Aproximação da série do arctan
     return arctg(x, y, 3)
 
 
-def pi(n):  # Série que se aproxima o número PI = 3.141592654
+def pi(n=10**5):  # Série que se aproxima o número PI = 3.141592654
     pi = 0
     for i in range(0, n):
         pi = pi + (((-1) ** i) / ((2 * i) + 1))

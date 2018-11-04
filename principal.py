@@ -1,5 +1,6 @@
 from funcoes import exp, r, arctg
 from plot import plot
+from math import cos, sin, atan
 
 
 def main():
@@ -13,7 +14,11 @@ def main():
 
     print(f"(x', y') = ({x1}, {y1})")
 
-    plot(x, y, x1, y1)
+    x2 = r(x, y) * cos((a / 180 * 3.141592654) + atan(y/x))
+    y2 = r(x, y) * sin((a / 180 * 3.141592654) + atan(y/x))
+
+    plot(x, y, x1, y1, False)
+    plot(x, y, x1, y1, True, x2, y2)
 
 
 if __name__ == "__main__":
